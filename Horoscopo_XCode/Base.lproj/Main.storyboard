@@ -1,24 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cw1-Vg-EkX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="hdL-Xv-aMu">
+            <objects>
+                <navigationController id="cw1-Vg-EkX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="feY-dp-beY">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eIq-wj-uQf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OdB-Ep-Vfw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="4"/>
+        </scene>
+        <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title=" " id="BYZ-38-t0r" customClass="MainViewController" customModule="Horoscopo_XCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ftW-FJ-y9h">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="73" id="5PQ-Xz-rMA" customClass="Horoscopo__TblViewCell" customModule="Horoscopo_XCode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5PQ-Xz-rMA" id="lNT-38-pcC">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIS-cm-Moc">
+                                                    <rect key="frame" x="20" y="10" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horoscopo name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yi5-jJ-F57">
+                                                    <rect key="frame" x="99" y="14" width="261" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fechas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kx-a1-iJi">
+                                                    <rect key="frame" x="99" y="36" width="253" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" systemColor="tintColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="icon_image" destination="TIS-cm-Moc" id="Iat-ur-LeZ"/>
+                                            <outlet property="lbl_NameHoroscopo" destination="yi5-jJ-F57" id="hKr-lh-Zf5"/>
+                                            <outlet property="lbl_dateHoroscopo" destination="9Kx-a1-iJi" id="hqw-Tj-0dO"/>
+                                            <segue destination="bWe-ZM-oaL" kind="show" identifier="navigateToDetail" id="R7Y-R1-Ar8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ftW-FJ-y9h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="X7e-6P-YRT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ftW-FJ-y9h" secondAttribute="trailing" id="gxx-FY-SiP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ftW-FJ-y9h" secondAttribute="bottom" id="m0f-Wf-TFA"/>
+                            <constraint firstItem="ftW-FJ-y9h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ouX-ai-Tck"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Z35-gH-xSo">
+                        <barButtonItem key="backBarButtonItem" title=" " id="VUe-1s-ZKm"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="TableView" destination="ftW-FJ-y9h" id="Lqy-YB-Gj3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="UJv-YV-UQo">
+            <objects>
+                <viewController id="bWe-ZM-oaL" customClass="DetailViewController" customModule="Horoscopo_XCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7n1-gp-TV4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnD-sj-RZ0">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dBJ-r7-e6c">
+                                        <rect key="frame" x="89" y="22" width="187" height="156"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fechas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMy-J1-eHj">
+                                        <rect key="frame" x="12" y="185" width="372" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="navigateTime" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="K5k-p5-7zR">
+                                        <rect key="frame" x="12" y="214" width="373" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Diario"/>
+                                            <segment title="Semanal"/>
+                                            <segment title="Mensual"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="TimesControlValueChanged:" destination="bWe-ZM-oaL" eventType="valueChanged" id="pRd-JP-AuL"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Contenido" textAlignment="natural" id="zLa-kW-2K8">
+                                        <rect key="frame" x="21" y="319" width="360" height="381"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="navigateDate" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="H3A-PV-b5g">
+                                        <rect key="frame" x="12" y="253" width="270" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Ayer"/>
+                                            <segment title="Hoy"/>
+                                            <segment title="Mañana"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="DatesControlValueChanged:" destination="bWe-ZM-oaL" eventType="valueChanged" id="CX7-mI-RQN"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="XzM-wc-uRO">
+                                        <rect key="frame" x="274" y="245" width="110" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="DatePicker:" destination="bWe-ZM-oaL" eventType="valueChanged" id="V6b-cy-xBQ"/>
+                                        </connections>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comentario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUY-KS-aGY">
+                                        <rect key="frame" x="21" y="298" width="76" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.86628952770876289" green="1" blue="0.93170236402771378" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DIx-pt-Qxx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DIx-pt-Qxx" firstAttribute="bottom" secondItem="TnD-sj-RZ0" secondAttribute="bottom" id="01m-8X-45o"/>
+                            <constraint firstItem="DIx-pt-Qxx" firstAttribute="trailing" secondItem="TnD-sj-RZ0" secondAttribute="trailing" id="6I7-zI-GES"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="leading" secondItem="DIx-pt-Qxx" secondAttribute="leading" id="7E4-97-xcI"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="top" secondItem="DIx-pt-Qxx" secondAttribute="top" id="Go3-G1-eO1"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="leading" secondItem="DIx-pt-Qxx" secondAttribute="leading" id="HEu-14-3SJ"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="bottom" secondItem="DIx-pt-Qxx" secondAttribute="bottom" id="KT2-HZ-u68"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="top" secondItem="DIx-pt-Qxx" secondAttribute="top" id="Ki2-MW-Zlw"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="top" secondItem="DIx-pt-Qxx" secondAttribute="top" id="Xhc-Oe-0V8"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="leading" secondItem="DIx-pt-Qxx" secondAttribute="leading" id="feg-Bx-KxT"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="trailing" secondItem="DIx-pt-Qxx" secondAttribute="trailing" id="nWs-cU-Y3t"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="bottom" secondItem="DIx-pt-Qxx" secondAttribute="bottom" id="vDZ-cP-OuF"/>
+                            <constraint firstItem="TnD-sj-RZ0" firstAttribute="trailing" secondItem="DIx-pt-Qxx" secondAttribute="trailing" id="wJM-o5-eCb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KWI-wg-z9h">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cpW-of-0NZ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="DatePicker" destination="XzM-wc-uRO" id="fHr-pc-KnC"/>
+                        <outlet property="TabDates" destination="H3A-PV-b5g" id="qpl-WN-ddR"/>
+                        <outlet property="TabTimes" destination="K5k-p5-7zR" id="FR2-Ui-i0u"/>
+                        <outlet property="iconoZodiaco" destination="dBJ-r7-e6c" id="VJd-xN-ve9"/>
+                        <outlet property="lblContenido" destination="zLa-kW-2K8" id="4Ck-pU-hco"/>
+                        <outlet property="lblFechas" destination="QMy-J1-eHj" id="a9n-Ll-YBQ"/>
+                        <outlet property="nombreZodiaco" destination="QMy-J1-eHj" id="bi6-Y2-dvL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLy-3I-KD2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1898.4732824427481" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
