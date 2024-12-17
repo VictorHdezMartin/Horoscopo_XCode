@@ -7,7 +7,7 @@
 
 import Foundation
 
-func getHoroscope(Url: String, completion: @escaping (Result<HoroscopeResponse, Error>) -> Void) {
+func getHoroscope(Url: String, completion: @escaping (Result<ResponseAPI, Error>) -> Void) {
      
   // Verificar si la URL es válida
      guard let url = URL(string: Url) else {
@@ -21,7 +21,7 @@ func getHoroscope(Url: String, completion: @escaping (Result<HoroscopeResponse, 
      
   // Realizar la solicitud con URLSession
      let task = URLSession.shared.dataTask(with: request) { data, response, error in
-         // Manejar errores de red
+      // Manejar errores de red
          if let error = error {
              completion(.failure(error))
              return
@@ -33,14 +33,14 @@ func getHoroscope(Url: String, completion: @escaping (Result<HoroscopeResponse, 
              return
          }
          
-    //----     if let str = String(data: data, encoding: .utf8) {
+    //     if let str = String(data: data, encoding: .utf8) {
     //         print("Successfully decoded: \(str)")
     //     }
          
       // Intentar parsear el JSON
          do {
              let decoder = JSONDecoder()
-             let horoscopeResponse = try decoder.decode(HoroscopeResponse.self, from: data)
+             let horoscopeResponse = try decoder.decode(ResponseAPI.self, from: data)
              completion(.success(horoscopeResponse))
          } catch {
              completion(.failure(error))

@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ftW-FJ-y9h">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="73" id="5PQ-Xz-rMA" customClass="Horoscopo__TblViewCell" customModule="Horoscopo_XCode" customModuleProvider="target">
@@ -55,15 +55,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fechas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kx-a1-iJi">
-                                                    <rect key="frame" x="99" y="36" width="253" height="21"/>
+                                                    <rect key="frame" x="99" y="36" width="212" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="tintColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kty-zn-OiC">
+                                                    <rect key="frame" x="340" y="13" width="33" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" systemColor="systemPinkColor"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="iconMainFavorito" destination="Kty-zn-OiC" id="w3G-Lm-Heq"/>
                                             <outlet property="icon_image" destination="TIS-cm-Moc" id="Iat-ur-LeZ"/>
                                             <outlet property="lbl_NameHoroscopo" destination="yi5-jJ-F57" id="hKr-lh-Zf5"/>
                                             <outlet property="lbl_dateHoroscopo" destination="9Kx-a1-iJi" id="hqw-Tj-0dO"/>
@@ -82,9 +88,11 @@
                             <constraint firstItem="ftW-FJ-y9h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ouX-ai-Tck"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Z35-gH-xSo">
                         <barButtonItem key="backBarButtonItem" title=" " id="VUe-1s-ZKm"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="TableView" destination="ftW-FJ-y9h" id="Lqy-YB-Gj3"/>
                     </connections>
@@ -101,8 +109,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnD-sj-RZ0">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TnD-sj-RZ0">
+                                <rect key="frame" x="0.0" y="103" width="393" height="727"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dBJ-r7-e6c">
                                         <rect key="frame" x="89" y="22" width="187" height="156"/>
@@ -116,7 +124,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="navigateTime" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="K5k-p5-7zR">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="navigateTime" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="K5k-p5-7zR">
                                         <rect key="frame" x="12" y="214" width="373" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <segments>
@@ -129,7 +137,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Contenido" textAlignment="natural" id="zLa-kW-2K8">
-                                        <rect key="frame" x="21" y="319" width="360" height="381"/>
+                                        <rect key="frame" x="21" y="319" width="360" height="408"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -149,7 +157,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="XzM-wc-uRO">
-                                        <rect key="frame" x="274" y="245" width="110" height="47"/>
+                                        <rect key="frame" x="290" y="245" width="94" height="47"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="DatePicker:" destination="bWe-ZM-oaL" eventType="valueChanged" id="V6b-cy-xBQ"/>
@@ -185,9 +193,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="KWI-wg-z9h">
                         <barButtonItem key="backBarButtonItem" title=" " id="cpW-of-0NZ"/>
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="k33-xc-rF3">
+                            <color key="tintColor" red="0.90588235859999999" green="0.21568629149999999" blue="0.2901961207" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="setFavorite:" destination="bWe-ZM-oaL" id="Mzx-Qs-Vxc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="DatePicker" destination="XzM-wc-uRO" id="fHr-pc-KnC"/>
+                        <outlet property="FavoritoIcon" destination="k33-xc-rF3" id="ILR-yD-vqr"/>
                         <outlet property="TabDates" destination="H3A-PV-b5g" id="qpl-WN-ddR"/>
                         <outlet property="TabTimes" destination="K5k-p5-7zR" id="FR2-Ui-i0u"/>
                         <outlet property="iconoZodiaco" destination="dBJ-r7-e6c" id="VJd-xN-ve9"/>
@@ -202,11 +218,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

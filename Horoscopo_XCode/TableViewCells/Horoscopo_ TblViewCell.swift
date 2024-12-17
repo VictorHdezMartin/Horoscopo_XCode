@@ -12,14 +12,15 @@ class Horoscopo__TblViewCell: UITableViewCell {
     @IBOutlet weak var icon_image: UIImageView!
     @IBOutlet weak var lbl_NameHoroscopo: UILabel!
     @IBOutlet weak var lbl_dateHoroscopo: UILabel!
+    @IBOutlet weak var iconMainFavorito: UIImageView!
+    
+    var session: SessionManager!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         changeBackGroundColor()
-        
-        
-        
+        session = SessionManager()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,37 +38,13 @@ class Horoscopo__TblViewCell: UITableViewCell {
         self.selectedBackgroundView = nView
     }
    
-    
 // dibujar cada celda del horoscopo  ------------------------------------------
     
     func render(_ horoscopo: Horoscopo){
-        
         lbl_NameHoroscopo.text = horoscopo.name
         lbl_dateHoroscopo.text = horoscopo.dates
         icon_image.image = horoscopo.icon
-
         
-        
-        
-        
-        
-        
-        
+        iconMainFavorito.isHidden = !session.isFavorite(horoscopoId: horoscopo.id)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 }

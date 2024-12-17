@@ -11,6 +11,9 @@ class DetailViewController: UIViewController {
     
     var horoscopo: Horoscopo? = nil
     
+    var isFavorite: Bool = false
+    var session: SessionManager!
+    
     @IBOutlet weak var nombreZodiaco: UILabel!
     @IBOutlet weak var iconoZodiaco: UIImageView!
     @IBOutlet weak var lblFechas: UILabel!
@@ -18,11 +21,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var TabTimes: UISegmentedControl!
     @IBOutlet weak var TabDates: UISegmentedControl!
     @IBOutlet weak var DatePicker: UIDatePicker!
+    @IBOutlet weak var FavoritoIcon: UIBarButtonItem!
     
     // -----------------------------------------------------------------------------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        session = SessionManager()
         
         navigationItem.title = horoscopo?.name
         
@@ -30,23 +36,23 @@ class DetailViewController: UIViewController {
         lblFechas.text = horoscopo?.dates
         
         callGetHoroscopo(periodo: periodos[TabTimes.selectedSegmentIndex], Signo: horoscopo!.id, dias: "TODAY")
+        
+        DatePicker.maximumDate = Date()  // fecha tope -> fecha actual
+        
+        isFavorite = session.isFavorite(horoscopoId: horoscopo!.id)
+        setFavoriteIcon()
     }
     
     @IBAction func TimesControlValueChanged(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
         
-        if (selectedIndex == 0) {
-            TabDates.isHidden = false
-            DatePicker.isHidden = false
-        } else{
-            TabDates.isHidden = true
-            DatePicker.isHidden = true
-        }
+        TabDates.isEnabled = (selectedIndex == 0)
+        DatePicker.isEnabled = (selectedIndex == 0)
         
         callGetHoroscopo(periodo: periodos[selectedIndex], Signo: horoscopo!.id, dias: "TODAY")
     }
     
-// ---------------------------------------------------------------------------------------------------------------------
+//  Manejo de la botonera: Ayer - hoy - mañana ----------------------------------------------------------------------
     
     @IBAction func DatesControlValueChanged(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
@@ -66,19 +72,44 @@ class DetailViewController: UIViewController {
         callGetHoroscopo(periodo: periodos[TabTimes.selectedSegmentIndex], Signo: horoscopo!.id, dias: formattedDate)
         
     }
-
     
+// Activamos el signo como favorito  -------------------------------------------------------------------------------
+    
+    func setFavoriteIcon() {
+        if (isFavorite) {
+            FavoritoIcon.image = UIImage(systemName: "heart.fill")
+        } else {
+            FavoritoIcon.image = UIImage(systemName: "heart")
+        }
+    }
+    
+// ---------
+    
+    @IBAction func setFavorite(_ sender: Any) {
+        
+        if (isFavorite) {
+                session.setFavorite(horoscopoId: "")
+        } else {
+            session.setFavorite(horoscopoId: horoscopo!.id)
+        }
+        
+        isFavorite = !isFavorite
+        setFavoriteIcon()
+    }
+
 // ---------------------------------------------------------------------------------------------------------------------
     
     func callGetHoroscopo(periodo: String, Signo: String, dias: String) {
         
         let URL = "https://horoscope-app-api.vercel.app/api/v1/get-horoscope/\(periodo)?sign=\(horoscopo!.id)&day=\(dias)"
-        print(URL)
+        
+      //  print(URL)
+        
         getHoroscope(Url: URL) { [self] result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let horoscopeResponse):
-                    self.lblContenido.text = horoscopeResponse.data.horoscope_data
+                case .success(let apiResponse):
+                    self.lblContenido.text = apiResponse.data.horoscope_data
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
                 }
@@ -87,23 +118,4 @@ class DetailViewController: UIViewController {
     }
 }
 
-// lista de opciones de selección  ----------------------------------------------------------------------------------
-
-   let periodos: [String] = ["daily", "weekly", "monthly"]
-   let dias: [String] = ["YESTERDAY", "TODAY", "TOMORROW"]
-
-// Estructura para manejar la respuesta de la API -------------------------------------------------------------------
-    
-    struct HoroscopeResponse: Decodable {
-        let data: HoroscopeData
-        let status: Int
-        let success: Bool
-    }
-
-    struct HoroscopeData: Decodable {
-        let date: String?
-        let week: String?
-        let month: String?
-        let horoscope_data: String
-    }
 
